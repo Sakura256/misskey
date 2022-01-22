@@ -1,10 +1,10 @@
 {
-	"short_name": "Cy's Misskey",
-	"name": "Cy's Misskey",
+	"short_name": "Misskey",
+	"name": "Misskey",
 	"start_url": "/",
 	"display": "standalone",
 	"background_color": "#313a42",
-	"theme_color": "#cf085b",
+	"theme_color": "#86b300",
 	"icons": [
 		{
 			"src": "/static-assets/icons/192.png",

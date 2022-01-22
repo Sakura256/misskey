@@ -22,7 +22,6 @@ export const builtinThemes = [
 	require('@/themes/l-vivid.json5'),
 	require('@/themes/l-sushi.json5'),
 
-	require('@/themes/d-sakura.json5'),
 	require('@/themes/d-dark.json5'),
 	require('@/themes/d-persimmon.json5'),
 	require('@/themes/d-astro.json5'),
@@ -35,11 +34,11 @@ export const builtinThemes = [
 let timeout = null;
 
 export function applyTheme(theme: Theme, persist = true) {
-	if (timeout) clearTimeout(timeout);
+	if (timeout) window.clearTimeout(timeout);
 
 	document.documentElement.classList.add('_themeChanging_');
 
-	timeout = setTimeout(() => {
+	timeout = window.setTimeout(() => {
 		document.documentElement.classList.remove('_themeChanging_');
 	}, 1000);
 
