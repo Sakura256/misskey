@@ -49,7 +49,9 @@
 					<div class="text">
 						<span v-if="appearNote.isHidden" style="opacity: 0.5">({{ $ts.private }})</span>
 						<MkA v-if="appearNote.replyId" class="reply" :to="`/notes/${appearNote.replyId}`"><i class="fas fa-reply"></i></MkA>
-						<Mfm v-if="appearNote.text" :text="appearNote.text" :author="appearNote.user" :i="$i" :custom-emojis="appearNote.emojis"/>
+						<MkA v-if="appearNote.text" :to="notePage(appearNote)">
+							<Mfm v-if="appearNote.text" :text="appearNote.text" :author="appearNote.user" :i="$i" :custom-emojis="appearNote.emojis"/>
+						</MkA>
 						<a v-if="appearNote.renote != null" class="rp">RN:</a>
 						<div v-if="translating || translation" class="translation">
 							<MkLoading v-if="translating" mini/>
@@ -121,6 +123,7 @@ import { url } from '@/config';
 import copyToClipboard from '@/scripts/copy-to-clipboard';
 import { checkWordMute } from '@/scripts/check-word-mute';
 import { userPage } from '@/filters/user';
+import { notePage } from '@/filters/note';
 import * as os from '@/os';
 import { noteActions, noteViewInterruptors } from '@/store';
 import { reactionPicker } from '@/scripts/reaction-picker';
@@ -170,6 +173,7 @@ export default defineComponent({
 			muted: false,
 			translation: null,
 			translating: false,
+			notePage,
 		};
 	},
 
